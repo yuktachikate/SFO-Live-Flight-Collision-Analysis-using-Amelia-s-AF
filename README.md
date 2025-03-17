@@ -27,16 +27,16 @@ Retrieve real-time aircraft state vectors from the OpenSky Network API within a 
 Collision Analysis:
 Compute pairwise distances between flights and flag those under a threshold (1 km) as potential collisions.
 
-# Visualization:
-# Static Charts:
+## Visualization:
+## Static Charts:
 Histogram of pairwise distances (with collision threshold).
 Scatter plot of flight positions (red for potential collisions, blue for safe).
 Bar chart showing the percentage of flights flagged as potential collision risks.
 
-# Interactive Map:
+## Interactive Map:
 Display live flight markers on a cropped Folium map of SFO’s airspace.
 
-# Extensibility:
+## Extensibility:
 The project design is modular, allowing you to refine filtering criteria, adjust thresholds, or extend the analysis with additional parameters (e.g., flight heading, velocity, altitude differences).
 
 # Data Source
@@ -48,19 +48,19 @@ The OpenSky public API has rate limits and sometimes limited data availability. 
 # Project Structure
 The project is implemented as a single notebook (or set of cells) in Google Colab. The main components include:
 
-# Data Acquisition:
+## Data Acquisition:
 Fetches live flight data from OpenSky.
-# Collision Analysis:
+## Collision Analysis:
 Computes pairwise distances using the Haversine formula and flags potential collision risks.
-# Visualization:
+## Visualization:
 Generates static charts using Matplotlib and interactive maps using Folium and ipyleaflet.
-# High-Level Analysis:
+## High-Level Analysis:
 Displays the percentage of flights with potential collision risks and overlays flight markers on SFO’s map.
-# Requirements:
+## Requirements:
 Python 3.x
 Google Colab (recommended for interactive map support)
 
-# Required Python packages:
+## Required Python packages:
 requests
 numpy
 matplotlib
@@ -69,7 +69,7 @@ ipyleaflet
 nest_asyncio
 ipywidgets
 
-# Installation
+## Installation
 In a Google Colab notebook, install the necessary packages by running:
 
 python
@@ -77,10 +77,10 @@ Copy
 !pip install requests numpy matplotlib folium ipyleaflet nest_asyncio ipywidgets
 Usage
 
-# Launch the Notebook:
+## Launch the Notebook:
 Open the notebook in Google Colab.
 
-# Run Cells Sequentially:
+## Run Cells Sequentially:
 The notebook is structured in cells. Run cells to:
 
 Fetch live flight data for SFO.
@@ -88,20 +88,20 @@ Analyze potential collision risks.
 Display static charts (histogram, scatter plot, bar chart).
 Render an interactive map with flight markers.
 
-# Adjust Parameters:
+## Adjust Parameters:
 Modify the bounding box coordinates if necessary.
 Change the collision threshold in the code.
 Update filtering criteria or add new analysis (e.g., incorporating altitude differences).
 Analysis and Visualization
 The collision analysis consists of the following steps:
 
-# Data Extraction:
+## Data Extraction:
 Retrieve up to 15 live flight markers from the OpenSky API in the SFO area.
 
-# Pairwise Distance Computation:
+## Pairwise Distance Computation:
 Use the Haversine formula to compute distances between every pair of flights.
 
-# Collision Flagging:
+## Collision Flagging:
 Flag flights as potential collisions if they are within 1 km of another flight.
 
 # Visualization:
@@ -111,13 +111,13 @@ Flag flights as potential collisions if they are within 1 km of another flight.
 4. An interactive Folium map displays live flight markers, with red markers indicating potential collision risks.
    
 # Limitations and Future Work
-# Simplified Analysis:
+## Simplified Analysis:
 This project only considers horizontal distances. For more robust collision risk prediction, consider incorporating flight headings, speeds, and altitude differences.
 
-# Data Frequency:
+## Data Frequency:
 The OpenSky API may not update frequently enough for real-time dynamic analysis. For high-resolution tracking, consider dedicated ADS-B data feeds.
 
-# Extending the Model:
+## Extending the Model:
 Future improvements could include:
 Using a dynamic trajectory prediction model (inspired by the Amelia-TF model).
 Incorporating additional contextual data such as runway layout, taxiway maps, and weather conditions.
